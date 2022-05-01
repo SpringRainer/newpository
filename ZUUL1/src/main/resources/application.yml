@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: zuul
+server:
+  port: 8006
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    com.netflix: DEBUG
+zuul:
+  routes:
+    myapp:
+     serviceId: provider1
+     path: /mydept/**

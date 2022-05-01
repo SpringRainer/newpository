@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重复度测试</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+<input type="button" value="按下测试" id="button1"/>
+
+</body>
+<script type="text/javascript">
+
+    $("#button1").click(function () {
+
+        var s = setInterval(f1,10);
+
+        function f1(){
+        $.ajax({
+            url: "/feign",
+            type: "get",
+            data: {info: "hello"},
+            contentType: "text",
+            dataType: "text",
+            cache: false,
+            async: false,
+            success: function (data) {
+                console.log("调用成功"+data)
+            },
+            error: function () {
+                console.log("出错了");
+            }
+        })
+      }
+ })
+</script>
+</html>
